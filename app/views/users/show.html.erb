@@ -1,9 +1,9 @@
 <div class="booyah-box">
   <div class="row">
-    <div class="col-xs-4">
+    <div class="col-sm-4 hidden-xs">
       <%= image_tag 'user.png' %>
     </div>
-    <div class="col-xs-8">
+    <div class="col-sm-8">
       <h1><%= @user.email %></h1>
       <h3>Member since: <%= @user.created_at.strftime("%A, %B %d, %Y") %></h3>
       <h4><%= @user.comments.count %> total comments</h4>
@@ -14,7 +14,7 @@
 
 <h1 class="text-center">My Comments</h1>
 <% @user.comments.each do |comment| %>
-  <div class="col-xs-12 col-sm-6">
+  <div class="col-md-6">
     <div class="booyah-box">
       <h2 class="text-center"><%= link_to comment.place.name, place_path(comment.place) %></h2>
       <blockquote>
@@ -24,6 +24,18 @@
         <%= comment.message %>
         <small><%= comment.user.email %></small>
       </blockquote>
+    </div>
+  </div>
+<% end %>
+
+<div class="clear"></div>
+<h2 class="text-center">My Places</h2>
+
+<% @user.places.each do |place| %>
+  <div class="col-sm-4">
+    <div class="booyah-box">
+      <h1><%= link_to place.name, place_path(place) %></h1><br />
+      <i><%= place.address %></i><br />
     </div>
   </div>
 <% end %>
