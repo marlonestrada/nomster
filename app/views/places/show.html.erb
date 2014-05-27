@@ -47,7 +47,7 @@
 </div>
 <div class="clearfix"></div>
 
-<% @place.comments.each do |comment| %>
+<% @comments.each do |comment| %>
   <div class="col-xs-12 col-sm-6">
     <blockquote>
       <% if comment.humanized_rating.present? %>
@@ -58,6 +58,10 @@
     </blockquote>
   </div>
 <% end %>
+<div class="clearfix"></div>
+<div class="text-center">
+  <%= will_paginate @comments, renderer: BootstrapPagination::Rails, class: 'pagination pagination-lg' %>
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

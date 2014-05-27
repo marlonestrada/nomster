@@ -58,3 +58,7 @@
     <% end %>
   </div>
 <% end %>
+<div class="clearfix"></div>
+<div class="text-center">
+  <%= will_paginate @places, renderer: BootstrapPagination::Rails, class: 'pagination pagination-lg' %>
+</div>
